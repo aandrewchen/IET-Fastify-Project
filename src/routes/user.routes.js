@@ -1,11 +1,13 @@
-const userController = require('../controllers/user.controller');
+import userController from '../controllers/user.controller.js';
 
-async function routes(fastify, options) {
+async function routes(fastify, options, done) {
     fastify.get("/", userController.getAllUsers);
     fastify.get("/:id", userController.getUserById);
     fastify.post("/", userController.createUser);
     fastify.put("/:id", userController.updateUser);
     fastify.delete("/:id", userController.deleteUser);
+
+    done();
 }
 
-module.exports = routes;
+export default routes;
