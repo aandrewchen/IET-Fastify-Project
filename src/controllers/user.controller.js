@@ -1,5 +1,3 @@
-const User = require('../models/user.model');
-
 async function getAllUsers(request, reply) {
     try {
         reply.send("Not implemented yet");
@@ -40,7 +38,7 @@ async function deleteUser(request, reply) {
     }
 }
 
-module.exports = {
+export default {
     getAllUsers,
     getUserById,
     createUser,
