@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+import { Schema } from '@fastify/mongodb';
+import { fastify } from 'fastify';
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
     firstName: {
         type: String,
         required: true,
@@ -25,6 +26,6 @@ const UserSchema = new mongoose.Schema({
     },
 });
 
-const User = mongoose.model('User', UserSchema);
+const User = fastify.mongo.model('User', UserSchema);
 
-module.exports = User;
+export default User;
