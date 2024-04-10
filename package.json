@@ -15,7 +15,7 @@
     "@fastify/mongodb": "^8.0.0",
     "dotenv": "^16.4.5",
     "fastify": "^4.26.2",
-    "mongoose": "^8.2.1",
+    "fastify-plugin": "^4.5.1",
     "nodemon": "^3.1.0"
   }
 }
