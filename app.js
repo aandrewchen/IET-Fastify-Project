@@ -1,24 +1,14 @@
 import Fastify from 'fastify';
-import fastifyMongo from '@fastify/mongodb'
-import dotenv from 'dotenv'
-
+import dbConnector from './src/db-connector.js';
 import userRoutes from './src/routes/user.routes.js'
-
-dotenv.config();
-
-const username = process.env.MONGO_INITDB_ROOT_USERNAME;
-const password = process.env.MONGO_INITDB_ROOT_PASSWORD;
 
 const fastify = Fastify({
     logger: true
 });
 
-fastify.register(fastifyMongo, {
-    forceClose: true,
-    url: `mongodb://${username}:${password}@localhost:27017/users?authSource=admin`
-})
+fastify.register(dbConnector);
 
-fastify.register(userRoutes, { prefix: '/api/v1/users '});
+fastify.register(userRoutes, { prefix: '/api/v1/users'});
 
 const start = async () => {
     try {
